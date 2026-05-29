@@ -81,3 +81,64 @@
     );
   }
 }
+
+/* ── Hero entrance choreography ───────────────────────────── */
+@keyframes hero-rise {
+  from {
+    opacity: 0;
+    transform: translateY(1.75rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hero-figure-rise {
+  from {
+    opacity: 0;
+    transform: translateY(4rem) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes hero-glow-pulse {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
+
+@layer utilities {
+  .hero-rise {
+    opacity: 0;
+    animation: hero-rise 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+  .hero-figure {
+    opacity: 0;
+    animation: hero-figure-rise 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.15s
+      forwards;
+  }
+  .hero-glow {
+    animation: hero-glow-pulse 6s ease-in-out infinite;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-rise,
+  .hero-figure {
+    animation: none;
+    opacity: 1;
+  }
+  .hero-glow {
+    animation: none;
+  }
+}
