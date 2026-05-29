@@ -1,15 +1,8 @@
 import Link from "next/link";
 import { books } from "@/data/books";
+import { BookCover } from "@/components/BookCover";
 
-const genreColors: Record<string, string> = {
-  CF: "text-cyan border-cyan/40",
-  Fantasía: "text-gold border-gold/40",
-  Juvenil: "text-bone-dim border-bone-dim/40",
-  Antología: "text-blood-bright border-blood/40",
-  Ensayo: "text-bone border-bone/40",
-};
-
-const featured = books.filter((b) => b.award).slice(0, 3);
+const featured = books.filter((b) => b.cover).slice(0, 3);
 
 export function BooksTeaser() {
   return (
@@ -39,29 +32,25 @@ export function BooksTeaser() {
           </Link>
         </div>
 
-        <ul className="grid sm:grid-cols-3 gap-px bg-bone/10 border border-bone/10">
+        <ul className="grid grid-cols-3 gap-4 sm:gap-8">
           {featured.map((b) => (
-            <li key={b.title} className="bg-ink p-7 flex flex-col gap-3">
-              <div className="flex items-start justify-between gap-4">
-                <span
-                  className={`font-sans text-[10px] uppercase tracking-widest border px-2 py-1 ${
-                    genreColors[b.genre] ?? "border-bone/40 text-bone"
-                  }`}
-                >
-                  {b.genre}
-                </span>
-                <span className="font-display text-bone-dim text-sm tabular-nums">
-                  {b.year ?? "—"}
-                </span>
-              </div>
-              <h3 className="font-display font-bold text-bone text-xl leading-tight">
-                {b.title}
-              </h3>
-              {b.award && (
-                <p className="font-sans text-[11px] uppercase tracking-widest text-gold">
-                  ★ {b.award}
-                </p>
-              )}
+            <li key={b.title} className="group">
+              <Link href="/obra" className="block">
+                <BookCover
+                  title={b.title}
+                  genre={b.genre}
+                  cover={b.cover}
+                  sizes="(max-width: 768px) 33vw, 320px"
+                />
+                <h3 className="mt-4 font-display font-bold text-bone text-base sm:text-xl leading-tight group-hover:text-gold transition-colors">
+                  {b.title}
+                </h3>
+                {b.translations && (
+                  <p className="mt-1 font-sans text-[10px] uppercase tracking-widest text-bone-dim">
+                    Traducido al inglés
+                  </p>
+                )}
+              </Link>
             </li>
           ))}
         </ul>

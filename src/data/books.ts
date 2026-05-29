@@ -5,6 +5,7 @@ export type Book = {
   award?: string;
   summary: string;
   translations?: string[];
+  cover?: string;
 };
 
 export const books: Book[] = [
@@ -31,6 +32,7 @@ export const books: Book[] = [
     summary:
       "Su salto internacional: una space opera amarga y divertida sobre una Tierra alquilada como destino turístico galáctico.",
     translations: ["Inglés (A Planet for Rent, Restless Books)"],
+    cover: "/covers/a-planet-for-rent.jpg",
   },
   {
     title: "Precio justo",
@@ -61,13 +63,24 @@ export const books: Book[] = [
     summary:
       "Un veterinario de monstruos gigantes resuelve incidentes diplomáticos del tamaño de un sistema solar.",
     translations: ["Inglés (Restless Books)"],
+    cover: "/covers/super-extra-grande.jpg",
   },
   {
-    title: "Condonautas / Red Dust",
+    title: "Condonautas",
     year: null,
     genre: "CF",
     summary:
-      "Noir cibernético y posthumano en una estación espacial decadente.",
+      "Sátira espacial sobre los «condonautas»: humanos que sellan la diplomacia galáctica con sexo en la primera línea del contacto alienígena.",
+    translations: ["Inglés (Condomnauts, Restless Books)"],
+    cover: "/covers/condonautas.jpg",
+  },
+  {
+    title: "Red Dust",
+    year: null,
+    genre: "CF",
+    summary:
+      "Homenaje noir a Raymond Chandler: un robot detective positrónico llamado Raymond persigue criminales extraterrestres que viven por encima de las leyes de la física.",
     translations: ["Inglés (Red Dust, Restless Books)"],
+    cover: "/covers/red-dust.jpg",
   },
 ];
