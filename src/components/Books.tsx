@@ -18,7 +18,7 @@ export function Books() {
         <div className="flex flex-wrap items-end justify-between gap-6 mb-16">
           <div>
             <p className="font-sans text-xs uppercase tracking-[0.4em] text-gold mb-6">
-              §03 — Obra
+              §04 — Obra
             </p>
             <h2 className="font-display font-bold text-bone text-4xl sm:text-6xl leading-tight">
               Treinta libros.
@@ -29,9 +29,9 @@ export function Books() {
             </h2>
           </div>
           <p className="max-w-md font-serif text-bone-dim text-lg">
-            Selección destacada. Mezcla space opera, cyberpunk, fantasía
-            heroica, juvenil y antologías. Pídeme la bibliografía completa por
-            correo.
+            La misma mirada que pongo en tu manuscrito la llevo aplicando a la
+            mía desde 1988: space opera, cyberpunk, fantasía heroica, juvenil y
+            antologías. Pídeme la bibliografía completa por correo.
           </p>
         </div>
 

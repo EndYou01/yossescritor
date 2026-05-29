@@ -1,5 +1,3 @@
-import { site } from "@/data/site";
-
 export function Hero() {
   return (
     <section
@@ -34,34 +32,36 @@ export function Hero() {
         <div className="max-w-3xl">
           <p className="font-sans text-xs uppercase tracking-[0.4em] text-gold mb-6 flex items-center gap-3">
             <span className="inline-block h-px w-12 bg-gold" />
-            La Habana · desde 1969
+            Asesoría y coaching literario
           </p>
           <h1 className="font-display font-black text-bone leading-[0.95] text-balance text-5xl sm:text-7xl lg:text-8xl">
-            Ciencia ficción,
+            Tu manuscrito
             <br />
-            fantasía y un
+            merece un lector
             <br />
             <span className="text-blood-bright italic font-serif font-normal">
-              riff de heavy metal.
+              con oficio.
             </span>
           </h1>
           <p className="mt-8 max-w-xl font-serif text-bone-dim text-lg leading-relaxed">
-            {site.tagline} Más de treinta libros publicados en Cuba, España,
-            EE.&nbsp;UU., Italia, Francia, Polonia y Japón.
+            Soy <span className="text-bone">Yoss</span> —el autor de ciencia
+            ficción cubano más premiado, con más de treinta libros publicados en
+            siete países. Trabajo contigo tu novela, tus cuentos o tu guion
+            hasta que estén listos para el editor.
           </p>
           <div className="mt-10 flex flex-wrap gap-4 font-sans text-sm">
             <a
-              href="#obra"
-              className="group inline-flex items-center gap-3 bg-bone text-ink px-6 py-3 uppercase tracking-widest text-xs font-semibold hover:bg-gold transition-colors"
+              href="#contacto"
+              className="group inline-flex items-center gap-3 bg-blood text-bone px-6 py-3 uppercase tracking-widest text-xs font-semibold hover:bg-blood-bright transition-colors"
             >
-              Explorar la obra
+              Trabaja conmigo
               <span className="transition-transform group-hover:translate-x-1">→</span>
             </a>
             <a
               href="#asesoria"
               className="inline-flex items-center gap-3 border border-bone/30 text-bone px-6 py-3 uppercase tracking-widest text-xs font-semibold hover:border-bone hover:bg-bone/5 transition-colors"
             >
-              Contratar asesoría
+              Cómo trabajo
             </a>
           </div>
         </div>

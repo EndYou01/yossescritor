@@ -1,10 +1,9 @@
 const links = [
-  { href: "#sobre", label: "Sobre" },
-  { href: "#obra", label: "Obra" },
   { href: "#asesoria", label: "Asesoría" },
-  { href: "#otra-vida", label: "Otra vida" },
+  { href: "#sobre", label: "Sobre" },
+  { href: "#testimonios", label: "Testimonios" },
+  { href: "#obra", label: "Obra" },
   { href: "#prensa", label: "Prensa" },
-  { href: "#contacto", label: "Contacto" },
 ];
 
 export function Nav() {

@@ -7,12 +7,12 @@ export function About() {
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-20">
           <div className="lg:col-span-4">
             <p className="font-sans text-xs uppercase tracking-[0.4em] text-gold mb-6">
-              §01 — Sobre
+              §02 — Sobre
             </p>
             <h2 className="font-display font-bold text-bone text-4xl sm:text-5xl leading-tight">
-              Biólogo de formación.
+              ¿Quién va a
               <br />
-              <span className="text-blood-bright">Escritor</span> por vocación.
+              leer tu <span className="text-blood-bright">manuscrito?</span>
             </h2>
           </div>
 
@@ -73,7 +73,7 @@ export function About() {
               Premios
             </h3>
             <span className="font-sans text-xs uppercase tracking-[0.4em] text-bone-dim">
-              §02 — Reconocimientos
+              Reconocimientos
             </span>
           </div>
           <ul className="divide-y divide-bone/10 border-y border-bone/10">

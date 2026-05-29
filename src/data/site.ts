@@ -57,6 +57,58 @@ export const services = [
   },
 ];
 
+export const audience = [
+  "Escribes tu primera novela y no sabes si funciona.",
+  "Tienes un manuscrito terminado y quieres pulirlo antes del editor.",
+  "Reúnes cuentos en un libro y el orden no termina de cuadrar.",
+  "Desarrollas un guion o un mundo y necesitas una mirada con oficio.",
+];
+
+export const process = [
+  {
+    step: "01",
+    title: "Cuéntame el proyecto",
+    body: "Me escribes con un resumen, el género y la extensión. Si encaja, acordamos alcance y tarifa.",
+  },
+  {
+    step: "02",
+    title: "Leo a fondo",
+    body: "Leo el material entero y lo analizo: estructura, ritmo, personajes, voz. Nada de lectura en diagonal.",
+  },
+  {
+    step: "03",
+    title: "Devolución y plan",
+    body: "Te devuelvo un informe claro y conversamos: qué funciona, qué no y un plan concreto para arreglarlo.",
+  },
+  {
+    step: "04",
+    title: "Acompañamiento",
+    body: "Si quieres, seguimos durante la reescritura: rondas de revisión hasta dejar el texto listo.",
+  },
+];
+
+// TODO(Yoss): reemplazar por testimonios reales de alumnos/clientes (nombre + proyecto).
+export const testimonials = [
+  {
+    quote:
+      "Me devolvió la novela con un mapa de lo que fallaba que yo no veía después de tres años metido en ella. La terminé en seis meses.",
+    author: "Alumno de taller",
+    role: "Novela de CF — pendiente de confirmar",
+  },
+  {
+    quote:
+      "Reordenó mi libro de cuentos y de pronto el conjunto contaba una historia que ninguno contaba por separado.",
+    author: "Autora de relatos",
+    role: "Libro de cuentos — pendiente de confirmar",
+  },
+  {
+    quote:
+      "Honesto hasta doler y generoso hasta el final. Salí con tarea, pero también con ganas de seguir escribiendo.",
+    author: "Guionista",
+    role: "Desarrollo de guion — pendiente de confirmar",
+  },
+];
+
 export const press = [
   {
     outlet: "LA Review of Books",
