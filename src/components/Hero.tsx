@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export function Hero() {
   return (
     <section
@@ -26,6 +28,35 @@ export function Hero() {
           YOSS
         </span>
       </div>
+
+      {/* Yoss figure */}
+      <div
+        aria-hidden
+        className="absolute inset-y-0 right-0 z-0 hidden lg:flex items-end justify-end pointer-events-none select-none w-[42%] xl:w-[38%]"
+      >
+        {/* glow behind the figure */}
+        <div
+          className="absolute bottom-0 right-[8%] h-[70%] w-[60%]"
+          style={{
+            background:
+              "radial-gradient(ellipse at bottom, rgba(160,24,24,0.45) 0%, transparent 70%)",
+          }}
+        />
+        <Image
+          src="/yoss-figure.png"
+          alt="Yoss"
+          width={404}
+          height={1254}
+          priority
+          className="relative h-[94%] w-auto object-contain object-bottom drop-shadow-[0_10px_40px_rgba(0,0,0,0.85)]"
+        />
+      </div>
+
+      {/* fade so the figure melts into the page bottom */}
+      <div
+        aria-hidden
+        className="absolute inset-x-0 bottom-0 z-0 h-40 bg-gradient-to-t from-ink to-transparent"
+      />
 
       {/* Content */}
       <div className="relative z-10 mx-auto max-w-7xl w-full px-6 pb-24 pt-40">
