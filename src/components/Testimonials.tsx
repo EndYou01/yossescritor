@@ -9,7 +9,7 @@ export function Testimonials() {
       <div className="mx-auto max-w-7xl">
         <div className="max-w-3xl mb-16">
           <p className="font-sans text-xs uppercase tracking-[0.4em] text-gold mb-6">
-            §03 — Testimonios
+            Testimonios
           </p>
           <h2 className="font-display font-bold text-bone text-4xl sm:text-6xl leading-tight">
             Lo que pasa

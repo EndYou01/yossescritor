@@ -7,7 +7,7 @@ export function About() {
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-20">
           <div className="lg:col-span-4">
             <p className="font-sans text-xs uppercase tracking-[0.4em] text-gold mb-6">
-              §02 — Sobre
+              Sobre Yoss
             </p>
             <h2 className="font-display font-bold text-bone text-4xl sm:text-5xl leading-tight">
               ¿Quién va a

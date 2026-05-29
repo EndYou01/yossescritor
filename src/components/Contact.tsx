@@ -59,7 +59,7 @@ export function Contact() {
       <div className="mx-auto max-w-5xl">
         <div className="text-center mb-16">
           <p className="font-sans text-xs uppercase tracking-[0.4em] text-gold mb-6">
-            §07 — Contacto
+            Contacto
           </p>
           <h2 className="font-display font-bold text-bone text-5xl sm:text-7xl leading-[0.95] text-balance">
             Cuéntame

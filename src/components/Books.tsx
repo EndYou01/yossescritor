@@ -18,7 +18,7 @@ export function Books() {
         <div className="flex flex-wrap items-end justify-between gap-6 mb-16">
           <div>
             <p className="font-sans text-xs uppercase tracking-[0.4em] text-gold mb-6">
-              §04 — Obra
+              La obra
             </p>
             <h2 className="font-display font-bold text-bone text-4xl sm:text-6xl leading-tight">
               Treinta libros.

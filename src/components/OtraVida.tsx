@@ -28,7 +28,7 @@ export function OtraVida() {
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-10 mb-16">
           <div className="max-w-2xl">
             <p className="font-sans text-xs uppercase tracking-[0.4em] text-gold mb-6">
-              §05 — Otra vida
+              Otra vida
             </p>
             <h2 className="font-display font-bold text-bone text-4xl sm:text-6xl leading-tight">
               No solo de letras

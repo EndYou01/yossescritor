@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export function Hero() {
   return (
@@ -102,15 +103,15 @@ export function Hero() {
             className="hero-rise mt-10 flex flex-wrap gap-4 font-sans text-sm"
             style={{ animationDelay: "0.42s" }}
           >
-            <a
-              href="#contacto"
+            <Link
+              href="/contacto"
               className="group inline-flex items-center gap-3 bg-blood text-bone px-6 py-3 uppercase tracking-widest text-xs font-semibold hover:bg-blood-bright transition-colors"
             >
               Trabaja conmigo
               <span className="transition-transform group-hover:translate-x-1">
                 →
               </span>
-            </a>
+            </Link>
             <a
               href="#asesoria"
               className="inline-flex items-center gap-3 border border-bone/30 text-bone px-6 py-3 uppercase tracking-widest text-xs font-semibold hover:border-bone hover:bg-bone/5 transition-colors backdrop-blur-sm"

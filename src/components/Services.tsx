@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { services, audience, process } from "@/data/site";
 
 export function Services() {
@@ -7,7 +8,7 @@ export function Services() {
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 mb-16">
           <div className="lg:col-span-5">
             <p className="font-sans text-xs uppercase tracking-[0.4em] text-gold mb-6">
-              §01 — Asesoría
+              Asesoría
             </p>
             <h2 className="font-display font-bold text-bone text-4xl sm:text-6xl leading-tight">
               Trabajo tu
@@ -98,12 +99,12 @@ export function Services() {
             Las tarifas se cotizan según el manuscrito y el alcance. Cuéntame
             tu proyecto y te respondo con una propuesta.
           </p>
-          <a
-            href="#contacto"
+          <Link
+            href="/contacto"
             className="inline-flex items-center gap-3 bg-blood text-bone px-6 py-3 uppercase tracking-widest text-xs font-semibold hover:bg-blood-bright transition-colors font-sans"
           >
             Cuéntame tu proyecto →
-          </a>
+          </Link>
         </div>
       </div>
     </section>
