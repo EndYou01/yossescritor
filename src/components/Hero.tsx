@@ -43,16 +43,15 @@ export function Hero() {
                 "radial-gradient(ellipse at bottom, rgba(160,24,24,0.55) 0%, rgba(200,163,90,0.14) 38%, transparent 70%)",
             }}
           />
-          <div className="hero-figure relative h-[54svh] sm:h-[64svh] lg:h-[92svh] aspect-[1536/2752]">
-            <Image
-              src="/yoss-hero.png"
-              alt="Ilustración de Yoss: sombrero rojo, gafas, camiseta de Superman y botas"
-              fill
-              priority
-              sizes="(max-width: 1024px) 75vw, 42vw"
-              className="object-contain object-bottom drop-shadow-[0_14px_55px_rgba(0,0,0,0.9)]"
-            />
-          </div>
+          <Image
+            src="/yoss-hero.png"
+            alt="Ilustración de Yoss: sombrero rojo, gafas, camiseta de Superman y botas"
+            width={1536}
+            height={2752}
+            priority
+            sizes="(max-width: 1024px) 75vw, 42vw"
+            className="hero-figure relative h-[54svh] sm:h-[64svh] lg:h-[92svh] w-auto object-contain object-bottom drop-shadow-[0_14px_55px_rgba(0,0,0,0.9)]"
+          />
         </div>
       </div>
 
