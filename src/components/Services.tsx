@@ -3,7 +3,7 @@ import { services, audience, process } from "@/data/site";
 
 export function Services() {
   return (
-    <section id="asesoria" className="relative py-32 px-6 grain">
+    <section id="asesoria" className="relative py-20 sm:py-28 lg:py-32 px-6 grain">
       <div className="mx-auto max-w-7xl">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 mb-16">
           <div className="lg:col-span-5">

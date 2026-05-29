@@ -27,7 +27,7 @@ export function BookCover({
 
   // Typographic placeholder for titles without available cover art
   return (
-    <div className="relative aspect-[2/3] overflow-hidden bg-ink-soft grain flex flex-col items-center justify-center p-6 text-center">
+    <div className="relative aspect-[2/3] overflow-hidden bg-ink-soft grain flex flex-col items-center justify-center p-3 sm:p-6 text-center">
       <div
         aria-hidden
         className="absolute inset-0"
@@ -36,14 +36,14 @@ export function BookCover({
             "linear-gradient(155deg, rgba(160,24,24,0.28) 0%, transparent 55%)",
         }}
       />
-      <div aria-hidden className="absolute inset-3 border border-bone/15" />
-      <span className="relative font-sans text-[10px] uppercase tracking-[0.4em] text-gold mb-4">
+      <div aria-hidden className="absolute inset-2 sm:inset-3 border border-bone/15" />
+      <span className="relative font-sans text-[8px] sm:text-[10px] uppercase tracking-[0.3em] sm:tracking-[0.4em] text-gold mb-2 sm:mb-4">
         {genre}
       </span>
-      <span className="relative font-display font-bold text-bone text-2xl leading-tight text-balance">
+      <span className="relative font-display font-bold text-bone text-base sm:text-2xl leading-tight text-balance">
         {title}
       </span>
-      <span aria-hidden className="relative mt-4 h-px w-10 bg-blood" />
+      <span aria-hidden className="relative mt-2 sm:mt-4 h-px w-8 sm:w-10 bg-blood" />
     </div>
   );
 }

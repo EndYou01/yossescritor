@@ -6,7 +6,7 @@ const featured = books.filter((b) => b.cover).slice(0, 3);
 
 export function BooksTeaser() {
   return (
-    <section className="relative py-28 px-6 bg-ink-soft border-y border-bone/10">
+    <section className="relative py-16 sm:py-24 lg:py-28 px-6 bg-ink-soft border-y border-bone/10">
       <div className="mx-auto max-w-7xl">
         <div className="flex flex-wrap items-end justify-between gap-6 mb-12">
           <div>

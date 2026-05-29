@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export function OtraVidaTeaser() {
   return (
-    <section className="relative py-28 px-6 grain overflow-hidden">
+    <section className="relative py-16 sm:py-24 lg:py-28 px-6 grain overflow-hidden">
       <div className="mx-auto max-w-7xl flex flex-col md:flex-row md:items-center gap-12">
         <div className="flex-1">
           <p className="font-sans text-xs uppercase tracking-[0.4em] text-gold mb-6">

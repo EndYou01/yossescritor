@@ -3,7 +3,7 @@ import { stats } from "@/data/site";
 
 export function AboutTeaser() {
   return (
-    <section className="relative py-28 px-6 grain border-t border-bone/10">
+    <section className="relative py-16 sm:py-24 lg:py-28 px-6 grain border-t border-bone/10">
       <div className="mx-auto max-w-7xl grid lg:grid-cols-12 gap-12 lg:gap-20 items-start">
         <div className="lg:col-span-7">
           <p className="font-sans text-xs uppercase tracking-[0.4em] text-gold mb-6">

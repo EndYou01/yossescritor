@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export function CtaBand() {
   return (
-    <section className="relative py-32 px-6 grain border-t border-bone/10 overflow-hidden">
+    <section className="relative py-20 sm:py-28 lg:py-32 px-6 grain border-t border-bone/10 overflow-hidden">
       <div
         aria-hidden
         className="absolute inset-0 -z-0 opacity-60"

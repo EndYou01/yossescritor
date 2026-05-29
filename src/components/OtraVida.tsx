@@ -22,7 +22,7 @@ export function OtraVida() {
   return (
     <section
       id="otra-vida"
-      className="relative py-32 px-6 bg-ink-soft border-y border-bone/10"
+      className="relative py-20 sm:py-28 lg:py-32 px-6 bg-ink-soft border-y border-bone/10"
     >
       <div className="mx-auto max-w-7xl">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-10 mb-16">

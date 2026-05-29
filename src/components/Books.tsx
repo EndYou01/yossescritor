@@ -13,7 +13,7 @@ export function Books() {
   return (
     <section
       id="obra"
-      className="relative py-32 px-6 bg-ink-soft border-y border-bone/10"
+      className="relative py-20 sm:py-28 lg:py-32 px-6 bg-ink-soft border-y border-bone/10"
     >
       <div className="mx-auto max-w-7xl">
         <div className="flex flex-wrap items-end justify-between gap-6 mb-16">
@@ -38,9 +38,19 @@ export function Books() {
 
         <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-bone/10 border border-bone/10">
           {books.map((b) => (
-            <li key={b.title} className="bg-ink flex flex-col group">
-              <BookCover title={b.title} genre={b.genre} cover={b.cover} />
-              <div className="p-7 flex flex-col gap-3 flex-1">
+            <li
+              key={b.title}
+              className="bg-ink flex flex-row sm:flex-col group"
+            >
+              <div className="w-28 sm:w-full shrink-0">
+                <BookCover
+                  title={b.title}
+                  genre={b.genre}
+                  cover={b.cover}
+                  sizes="(max-width: 640px) 112px, (max-width: 1024px) 50vw, 33vw"
+                />
+              </div>
+              <div className="p-5 sm:p-7 flex flex-col gap-2 sm:gap-3 flex-1 min-w-0">
                 <div className="flex items-start justify-between gap-4">
                   <span
                     className={`font-sans text-[10px] uppercase tracking-widest border px-2 py-1 ${
@@ -53,7 +63,7 @@ export function Books() {
                     {b.year ?? "—"}
                   </span>
                 </div>
-                <h3 className="font-display font-bold text-bone text-2xl leading-tight group-hover:text-gold transition-colors">
+                <h3 className="font-display font-bold text-bone text-xl sm:text-2xl leading-tight group-hover:text-gold transition-colors">
                   {b.title}
                 </h3>
                 {b.award && (

@@ -2,7 +2,7 @@ import { awards, stats } from "@/data/site";
 
 export function About() {
   return (
-    <section id="sobre" className="relative py-32 px-6 grain">
+    <section id="sobre" className="relative py-20 sm:py-28 lg:py-32 px-6 grain">
       <div className="mx-auto max-w-7xl">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-20">
           <div className="lg:col-span-4">
