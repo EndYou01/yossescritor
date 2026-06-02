@@ -33,7 +33,7 @@ export function CtaBand() {
         </p>
         <Link
           href="/contacto"
-          className="group mt-10 inline-flex items-center gap-3 bg-acid text-ink px-8 py-4 uppercase tracking-widest text-xs font-bold hover:bg-flare hover:text-bone transition-colors font-sans print-shadow [--pc:#0b0a08]"
+          className="sheen group mt-10 inline-flex items-center gap-3 bg-acid text-ink px-8 py-4 uppercase tracking-widest text-xs font-bold hover:bg-flare hover:text-bone transition-colors font-sans print-shadow [--pc:#0b0a08]"
         >
           Cuéntame tu proyecto
           <span className="transition-transform group-hover:translate-x-1">→</span>

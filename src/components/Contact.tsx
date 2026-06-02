@@ -156,7 +156,7 @@ export function Contact() {
           <div className="sm:col-span-2 flex flex-wrap items-center gap-4 pt-2">
             <button
               type="submit"
-              className="inline-flex items-center gap-3 bg-acid text-ink px-8 py-4 uppercase tracking-widest text-xs font-bold hover:bg-flare hover:text-bone transition-colors font-sans print-shadow [--pc:#0b0a08]"
+              className="sheen group inline-flex items-center gap-3 bg-acid text-ink px-8 py-4 uppercase tracking-widest text-xs font-bold hover:bg-flare hover:text-bone transition-colors font-sans print-shadow [--pc:#0b0a08]"
             >
               Enviar proyecto →
             </button>

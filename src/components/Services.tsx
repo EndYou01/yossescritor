@@ -187,7 +187,7 @@ export function Services() {
           </p>
           <Link
             href="/contacto"
-            className="group inline-flex items-center gap-3 bg-flare text-ink px-6 py-3 uppercase tracking-widest text-xs font-bold hover:bg-acid transition-colors font-sans print-shadow-sm [--pc:#0b0a08]"
+            className="sheen group inline-flex items-center gap-3 bg-flare text-ink px-6 py-3 uppercase tracking-widest text-xs font-bold hover:bg-acid transition-colors font-sans print-shadow-sm [--pc:#0b0a08]"
           >
             Cuéntame tu proyecto
             <span className="transition-transform group-hover:translate-x-1">→</span>

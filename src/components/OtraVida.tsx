@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Kicker } from "@/components/Kicker";
+import { Particles } from "@/components/ui/particles";
 
 const pillarAccents = [
   { kicker: "flare" as const, text: "text-flare", border: "border-t-flare" },
@@ -39,6 +40,16 @@ export function OtraVida() {
           background:
             "radial-gradient(ellipse at 75% 90%, rgba(236,59,36,0.28) 0%, transparent 60%)",
         }}
+      />
+      {/* Sparks rising off the stage */}
+      <Particles
+        className="absolute inset-0"
+        quantity={55}
+        color="#ec3b24"
+        size={0.5}
+        staticity={60}
+        ease={70}
+        vy={-0.25}
       />
       <div className="relative mx-auto max-w-7xl">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-10 mb-16 reveal">
