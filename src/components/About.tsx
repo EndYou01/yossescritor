@@ -1,5 +1,6 @@
 import { awards, stats } from "@/data/site";
 import { Kicker } from "@/components/Kicker";
+import { NumberTicker } from "@/components/ui/number-ticker";
 
 const statColors = ["text-acid", "text-teal", "text-flare", "text-gold"];
 
@@ -63,19 +64,26 @@ export function About() {
 
         {/* Stats */}
         <div className="mt-24 grid grid-cols-2 lg:grid-cols-4 gap-px bg-bone/10 border border-bone/10 reveal">
-          {stats.map((s, i) => (
-            <div
-              key={s.label}
-              className="bg-ink p-8 flex flex-col items-start gap-2"
-            >
-              <div className={`font-display ${statColors[i % statColors.length]} text-4xl sm:text-5xl font-bold`}>
-                {s.value}
+          {stats.map((s, i) => {
+            const numeric = Number(s.value);
+            return (
+              <div
+                key={s.label}
+                className="bg-ink p-8 flex flex-col items-start gap-2"
+              >
+                <div className={`font-display ${statColors[i % statColors.length]} text-4xl sm:text-5xl font-bold`}>
+                  {Number.isFinite(numeric) ? (
+                    <NumberTicker value={numeric} delay={0.1 * i} />
+                  ) : (
+                    s.value
+                  )}
+                </div>
+                <div className="font-sans text-xs uppercase tracking-widest text-bone-dim">
+                  {s.label}
+                </div>
               </div>
-              <div className="font-sans text-xs uppercase tracking-widest text-bone-dim">
-                {s.label}
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
         {/* Awards */}

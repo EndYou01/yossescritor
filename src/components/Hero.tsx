@@ -1,14 +1,16 @@
 import Image from "next/image";
-import Link from "next/link";
+import { Particles } from "@/components/ui/particles";
+import { AnimatedShinyText } from "@/components/ui/animated-shiny-text";
+import { ShimmerLink } from "@/components/ShimmerLink";
 
 function Eyebrow() {
   return (
     <p
-      className="hero-rise font-sans text-xs uppercase tracking-[0.25em] sm:tracking-[0.4em] text-gold flex items-center gap-3"
+      className="hero-rise font-sans text-xs uppercase tracking-[0.25em] sm:tracking-[0.4em] flex items-center gap-3"
       style={{ animationDelay: "0.05s" }}
     >
       <span className="inline-block h-px w-12 bg-gold" />
-      Asesoría y coaching literario
+      <AnimatedShinyText>Asesoría y coaching literario</AnimatedShinyText>
     </p>
   );
 }
@@ -46,13 +48,10 @@ function Lede() {
 function Ctas() {
   return (
     <div className="hero-rise flex flex-wrap gap-4 font-sans text-sm" style={{ animationDelay: "0.42s" }}>
-      <Link
-        href="/contacto"
-        className="group inline-flex items-center gap-3 bg-blood text-bone px-6 py-3 uppercase tracking-widest text-xs font-semibold hover:bg-blood-bright transition-colors"
-      >
+      <ShimmerLink href="/contacto">
         Trabaja conmigo
         <span className="transition-transform group-hover:translate-x-1">→</span>
-      </Link>
+      </ShimmerLink>
       <a
         href="#asesoria"
         className="inline-flex items-center gap-3 border border-bone/30 text-bone px-6 py-3 uppercase tracking-widest text-xs font-semibold hover:border-bone hover:bg-bone/5 transition-colors backdrop-blur-sm"
@@ -80,6 +79,16 @@ export function Hero() {
         />
         <div className="absolute inset-0 vignette" />
         <div className="absolute inset-0 scanlines opacity-30" />
+        {/* Drifting gold embers — the metal-show air over the tenebroso base */}
+        <Particles
+          className="absolute inset-0"
+          quantity={70}
+          color="#c8a35a"
+          size={0.5}
+          staticity={45}
+          ease={60}
+          vy={-0.18}
+        />
       </div>
 
       {/* ─────────────────────────────────────────────────────────────

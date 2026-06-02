@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Kicker } from "@/components/Kicker";
+import { Particles } from "@/components/ui/particles";
 
 export function OtraVidaTeaser() {
   return (
@@ -13,6 +14,15 @@ export function OtraVidaTeaser() {
           background:
             "radial-gradient(ellipse at 78% 100%, rgba(236,59,36,0.30) 0%, transparent 60%)",
         }}
+      />
+      <Particles
+        className="absolute inset-0"
+        quantity={40}
+        color="#ec3b24"
+        size={0.5}
+        staticity={60}
+        ease={70}
+        vy={-0.22}
       />
       <div className="relative mx-auto max-w-7xl flex flex-col md:flex-row md:items-center gap-12">
         <div className="flex-1">

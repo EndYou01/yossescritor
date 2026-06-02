@@ -24,6 +24,48 @@
   --font-display: var(--font-cinzel), ui-serif, Georgia, serif;
   --font-serif: var(--font-lora), ui-serif, Georgia, serif;
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+
+  /* Magic UI — ShimmerButton drivers (speed comes from the --speed var) */
+  --animate-shimmer-slide: shimmer-slide var(--speed, 2.6s) ease-in-out infinite
+    alternate;
+  --animate-spin-around: spin-around calc(var(--speed, 2.6s) * 2) infinite
+    linear;
+  --animate-shiny-text: shiny-text 8s infinite;
+}
+
+@keyframes shiny-text {
+  0%,
+  90%,
+  100% {
+    background-position: calc(-100% - var(--shiny-width)) 0;
+  }
+  30%,
+  60% {
+    background-position: calc(100% + var(--shiny-width)) 0;
+  }
+}
+
+@keyframes shimmer-slide {
+  to {
+    transform: translate(calc(100cqw - 100%), 0);
+  }
+}
+
+@keyframes spin-around {
+  0% {
+    transform: translateZ(0) rotate(0);
+  }
+  15%,
+  35% {
+    transform: translateZ(0) rotate(90deg);
+  }
+  65%,
+  85% {
+    transform: translateZ(0) rotate(270deg);
+  }
+  100% {
+    transform: translateZ(0) rotate(360deg);
+  }
 }
 
 @layer base {
@@ -189,6 +231,33 @@
       drop-shadow(0 -0.5px 0 rgba(247, 232, 190, 0.18));
   }
 
+  /* Glossy light sweep on hover — for solid pulp buttons. Reliable
+     everywhere (no masks/offset-path), tuned brighter than the book gilt
+     sheen so it reads on saturated acid/flare/blood surfaces. */
+  .sheen {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+  }
+  .sheen::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background: linear-gradient(
+      115deg,
+      transparent 38%,
+      rgba(255, 248, 230, 0.4) 49%,
+      transparent 60%
+    );
+    transform: translateX(-130%);
+    transition: transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+  .sheen:hover::after {
+    transform: translateX(130%);
+  }
+
   /* Light sweeping across the gilt on hover */
   .book-sheen::after {
     content: "";
@@ -211,7 +280,8 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .book-sheen::after {
+  .book-sheen::after,
+  .sheen::after {
     transition: none;
   }
 }

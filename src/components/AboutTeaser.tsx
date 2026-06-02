@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { stats } from "@/data/site";
 import { Kicker } from "@/components/Kicker";
+import { NumberTicker } from "@/components/ui/number-ticker";
 
 const statColors = ["text-acid", "text-teal", "text-flare", "text-gold"];
 
@@ -34,16 +35,23 @@ export function AboutTeaser() {
         </div>
 
         <div className="lg:col-span-5 grid grid-cols-2 gap-px bg-bone/10 border border-bone/10 w-full">
-          {stats.map((s, i) => (
-            <div key={s.label} className="bg-ink p-6 flex flex-col gap-1">
-              <div className={`font-display ${statColors[i % statColors.length]} text-3xl sm:text-4xl font-bold`}>
-                {s.value}
+          {stats.map((s, i) => {
+            const numeric = Number(s.value);
+            return (
+              <div key={s.label} className="bg-ink p-6 flex flex-col gap-1">
+                <div className={`font-display ${statColors[i % statColors.length]} text-3xl sm:text-4xl font-bold`}>
+                  {Number.isFinite(numeric) ? (
+                    <NumberTicker value={numeric} delay={0.1 * i} />
+                  ) : (
+                    s.value
+                  )}
+                </div>
+                <div className="font-sans text-[10px] uppercase tracking-widest text-bone-dim">
+                  {s.label}
+                </div>
               </div>
-              <div className="font-sans text-[10px] uppercase tracking-widest text-bone-dim">
-                {s.label}
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

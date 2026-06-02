@@ -3,10 +3,8 @@ import { books } from "@/data/books";
 import { BookCover } from "@/components/BookCover";
 import { Kicker } from "@/components/Kicker";
 
-const featured = books.filter((b) => b.cover).slice(0, 3);
-
-// Hard sticker-shadow color per cover, sampled from each one.
-const shadow = ["#f3cf12", "#ec3b24", "#2bb8b3"];
+// Only the titles with real cover art — his international editions.
+const featured = books.filter((b) => b.cover);
 
 export function BooksTeaser() {
   return (
@@ -29,6 +27,9 @@ export function BooksTeaser() {
                 Una sola voz.
               </span>
             </h2>
+            <p className="mt-4 font-sans text-xs uppercase tracking-[0.3em] text-bone-dim">
+              Ediciones internacionales
+            </p>
           </div>
           <Link
             href="/obra"
@@ -41,25 +42,22 @@ export function BooksTeaser() {
           </Link>
         </div>
 
-        <ul className="grid grid-cols-3 gap-4 sm:gap-8 reveal-stagger">
+        <ul className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 reveal-stagger">
           {featured.map((b, i) => (
             <li key={b.title} className="group" style={{ ["--d" as string]: i }}>
               <Link href="/obra" className="block">
-                <div
-                  className="transition-transform duration-300 group-hover:-translate-x-1 group-hover:-translate-y-1 [--pc:transparent] group-hover:[--pc:var(--sc)] print-shadow"
-                  style={{ ["--sc" as string]: shadow[i % shadow.length] }}
-                >
+                <div className="transition-transform duration-300 group-hover:-translate-x-1 group-hover:-translate-y-1 [--pc:transparent] group-hover:[--pc:#c8a35a] print-shadow book-sheen">
                   <BookCover
                     title={b.title}
                     genre={b.genre}
                     cover={b.cover}
-                    sizes="(max-width: 768px) 33vw, 320px"
+                    sizes="(max-width: 1024px) 50vw, 320px"
                   />
                 </div>
-                <h3 className="mt-4 font-display font-bold text-bone text-base sm:text-xl leading-tight group-hover:text-acid transition-colors">
+                <h3 className="mt-4 font-display font-bold text-bone text-lg sm:text-xl leading-tight group-hover:text-acid transition-colors">
                   {b.title}
                 </h3>
-                {b.translations && (
+                {b.translations && b.translations.length > 0 && (
                   <p className="mt-1 font-sans text-[10px] uppercase tracking-widest text-bone-dim">
                     Traducido al inglés
                   </p>
