@@ -1,18 +1,30 @@
 import { awards, stats } from "@/data/site";
+import { Kicker } from "@/components/Kicker";
+
+const statColors = ["text-acid", "text-teal", "text-flare", "text-gold"];
 
 export function About() {
   return (
-    <section id="sobre" className="relative py-20 sm:py-28 lg:py-32 px-6 grain">
-      <div className="mx-auto max-w-7xl">
-        <div className="grid lg:grid-cols-12 gap-12 lg:gap-20">
+    <section id="sobre" className="relative py-20 sm:py-28 lg:py-32 px-6 grain overflow-hidden">
+      {/* Gold glow anchoring the biography's refined register */}
+      <div
+        aria-hidden
+        className="absolute -top-24 right-0 h-[32rem] w-[32rem] rounded-full opacity-[0.10] blur-3xl pointer-events-none"
+        style={{ background: "radial-gradient(circle, var(--color-gold), transparent 65%)" }}
+      />
+      <div className="relative mx-auto max-w-7xl">
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 reveal">
           <div className="lg:col-span-4">
-            <p className="font-sans text-xs uppercase tracking-[0.4em] text-gold mb-6">
+            <Kicker accent="gold" className="mb-6">
               Sobre Yoss
-            </p>
+            </Kicker>
             <h2 className="font-display font-bold text-bone text-4xl sm:text-5xl leading-tight">
               ¿Quién va a
               <br />
-              leer tu <span className="text-blood-bright">manuscrito?</span>
+              leer tu{" "}
+              <span className="text-gold italic font-serif font-normal">
+                manuscrito?
+              </span>
             </h2>
           </div>
 
@@ -28,10 +40,10 @@ export function About() {
             <p>
               Comenzó a escribir a los quince años en los Talleres Literarios.
               Se dio a conocer en 1988 al ganar el{" "}
-              <strong className="text-bone">Premio David</strong> con la
+              <strong className="text-gold">Premio David</strong> con la
               colección <em>Timshel</em>. Desde entonces ha publicado más de
-              treinta libros traducidos al inglés, francés, italiano, polaco y
-              japonés.
+              cuarenta libros, traducidos a una docena de idiomas —del inglés y
+              el francés al japonés, el polaco o el chino.
             </p>
             <p>
               Es el autor de ciencia ficción cubano más prolífico y premiado, y
@@ -42,21 +54,21 @@ export function About() {
               <em className="text-bone">Espacio Abierto</em>.
             </p>
             <p>
-              Compagina la literatura con el heavy metal —es vocalista del
-              grupo <strong className="text-bone">Tenaz</strong>— y con la
-              práctica de artes marciales y armas blancas.
+              Ha compaginado la literatura con el heavy metal —fue vocalista
+              del grupo <strong className="text-flare">Tenaz</strong> entre 2007
+              y 2016— y con la práctica de artes marciales y armas blancas.
             </p>
           </div>
         </div>
 
         {/* Stats */}
-        <div className="mt-24 grid grid-cols-2 lg:grid-cols-4 gap-px bg-bone/10 border border-bone/10">
-          {stats.map((s) => (
+        <div className="mt-24 grid grid-cols-2 lg:grid-cols-4 gap-px bg-bone/10 border border-bone/10 reveal">
+          {stats.map((s, i) => (
             <div
               key={s.label}
               className="bg-ink p-8 flex flex-col items-start gap-2"
             >
-              <div className="font-display text-gold text-4xl sm:text-5xl font-bold">
+              <div className={`font-display ${statColors[i % statColors.length]} text-4xl sm:text-5xl font-bold`}>
                 {s.value}
               </div>
               <div className="font-sans text-xs uppercase tracking-widest text-bone-dim">
@@ -67,12 +79,12 @@ export function About() {
         </div>
 
         {/* Awards */}
-        <div className="mt-24">
+        <div className="mt-24 reveal">
           <div className="flex items-baseline justify-between mb-8">
             <h3 className="font-display font-bold text-bone text-2xl sm:text-3xl">
               Premios
             </h3>
-            <span className="font-sans text-xs uppercase tracking-[0.4em] text-bone-dim">
+            <span className="font-sans text-xs uppercase tracking-[0.4em] text-gold">
               Reconocimientos
             </span>
           </div>
@@ -80,13 +92,17 @@ export function About() {
             {awards.map((a) => (
               <li
                 key={a.year + a.name}
-                className="grid grid-cols-[auto_1fr_auto] sm:grid-cols-[5rem_1fr_auto] items-baseline gap-4 sm:gap-8 py-5"
+                className="group py-5 sm:grid sm:grid-cols-[5rem_1fr_auto] sm:items-baseline sm:gap-8 hover:bg-ink-soft transition-colors px-2 -mx-2"
               >
-                <span className="font-display text-gold text-xl sm:text-2xl tabular-nums">
-                  {a.year}
-                </span>
-                <span className="font-serif text-bone text-lg">{a.name}</span>
-                <span className="font-sans text-xs sm:text-sm text-bone-dim text-right">
+                <div className="flex items-baseline gap-4 sm:contents">
+                  <span className="font-display text-gold text-xl sm:text-2xl tabular-nums shrink-0">
+                    {a.year}
+                  </span>
+                  <span className="font-serif text-bone text-lg group-hover:text-gold transition-colors">
+                    {a.name}
+                  </span>
+                </div>
+                <span className="mt-1.5 block pl-[3.5rem] sm:mt-0 sm:pl-0 font-sans text-xs sm:text-sm text-bone-dim sm:text-right">
                   {a.note}
                 </span>
               </li>

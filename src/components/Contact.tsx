@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { site } from "@/data/site";
+import { Kicker } from "@/components/Kicker";
 
 const projectTypes = [
   "Novela",
@@ -19,7 +20,7 @@ const stages = [
 ];
 
 const inputClass =
-  "w-full bg-ink border border-bone/20 px-4 py-3 font-serif text-bone placeholder:text-bone-dim/50 focus:border-gold focus:outline-none transition-colors";
+  "w-full bg-ink border border-bone/20 px-4 py-3 font-serif text-bone placeholder:text-bone-dim/50 focus:border-acid focus:outline-none transition-colors";
 const labelClass =
   "block font-sans text-xs uppercase tracking-widest text-bone-dim mb-2";
 
@@ -54,17 +55,22 @@ export function Contact() {
   return (
     <section
       id="contacto"
-      className="relative py-20 sm:py-28 lg:py-32 px-6 bg-ink-soft border-t border-bone/10"
+      className="relative py-20 sm:py-28 lg:py-32 px-6 bg-ink-soft border-t border-bone/10 grain overflow-hidden"
     >
-      <div className="mx-auto max-w-5xl">
-        <div className="text-center mb-16">
-          <p className="font-sans text-xs uppercase tracking-[0.4em] text-gold mb-6">
+      {/* Acid halftone wash up top */}
+      <div
+        aria-hidden
+        className="halftone-lg text-acid/12 absolute inset-x-0 top-0 h-44 halftone-fade-b pointer-events-none"
+      />
+      <div className="relative mx-auto max-w-5xl">
+        <div className="text-center mb-16 reveal">
+          <Kicker accent="acid" className="mb-6 justify-center">
             Contacto
-          </p>
+          </Kicker>
           <h2 className="font-display font-bold text-bone text-5xl sm:text-7xl leading-[0.95] text-balance">
             Cuéntame
             <br />
-            <span className="text-blood-bright italic font-serif font-normal">
+            <span className="text-acid italic font-serif font-normal">
               tu proyecto.
             </span>
           </h2>
@@ -150,7 +156,7 @@ export function Contact() {
           <div className="sm:col-span-2 flex flex-wrap items-center gap-4 pt-2">
             <button
               type="submit"
-              className="inline-flex items-center gap-3 bg-blood text-bone px-8 py-4 uppercase tracking-widest text-xs font-semibold hover:bg-blood-bright transition-colors font-sans"
+              className="inline-flex items-center gap-3 bg-acid text-ink px-8 py-4 uppercase tracking-widest text-xs font-bold hover:bg-flare hover:text-bone transition-colors font-sans print-shadow [--pc:#0b0a08]"
             >
               Enviar proyecto →
             </button>
@@ -160,7 +166,7 @@ export function Contact() {
                 href={site.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gold hover:text-bone transition-colors"
+                className="text-acid hover:text-bone transition-colors"
               >
                 {site.instagramHandle}
               </a>

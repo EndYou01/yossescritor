@@ -11,6 +11,13 @@
   --color-gold-dim: #8a7136;
   --color-cyan: #34e8e8;
 
+  /* Pulp-screenprint accents, pulled straight from the cover art:
+     acid yellow (A Planet for Rent), flare red (Red Dust / Condomnauts),
+     teal (Condomnauts ground, Red Dust iris). */
+  --color-acid: #f3cf12;
+  --color-flare: #ec3b24;
+  --color-teal: #2bb8b3;
+
   --color-background: var(--color-ink);
   --color-foreground: var(--color-bone);
 
@@ -139,6 +146,198 @@
     opacity: 1;
   }
   .hero-glow {
+    animation: none;
+  }
+}
+
+/* ── Vintage clothbound book cover (placeholder art) ──────── */
+@layer utilities {
+  /* Aged book-cloth: woven weft warp over a lit-center radial shade */
+  .book-cloth {
+    background-image: repeating-linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.22) 0 0.5px,
+        transparent 0.5px 2.5px
+      ),
+      repeating-linear-gradient(
+        90deg,
+        rgba(0, 0, 0, 0.22) 0 0.5px,
+        transparent 0.5px 2.5px
+      ),
+      radial-gradient(
+        125% 115% at 50% -12%,
+        color-mix(in srgb, var(--cloth) 82%, #ffffff 5%) 0%,
+        var(--cloth) 44%,
+        color-mix(in srgb, var(--cloth) 60%, #000000) 100%
+      );
+    background-blend-mode: overlay, overlay, normal;
+  }
+
+  /* Stamped gold-foil lettering with a pressed-in bevel */
+  .book-foil {
+    background-image: linear-gradient(
+      180deg,
+      #f1d896 0%,
+      #c8a35a 42%,
+      #876f34 72%,
+      #dcc081 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    filter: drop-shadow(0 1px 0 rgba(0, 0, 0, 0.55))
+      drop-shadow(0 -0.5px 0 rgba(247, 232, 190, 0.18));
+  }
+
+  /* Light sweeping across the gilt on hover */
+  .book-sheen::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 5;
+    pointer-events: none;
+    background: linear-gradient(
+      115deg,
+      transparent 36%,
+      rgba(255, 246, 222, 0.12) 49%,
+      transparent 62%
+    );
+    transform: translateX(-120%);
+    transition: transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+  .group:hover .book-sheen::after {
+    transform: translateX(120%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .book-sheen::after {
+    transition: none;
+  }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   PULP SCREENPRINT TOOLKIT
+   Dark tenebroso base + acid/flare/teal accents, halftone dots,
+   riso misregistration, hard "sticker" shadows, marquees and
+   scroll-driven reveals. Tints follow `currentColor` so any
+   accent class drives the texture.
+   ══════════════════════════════════════════════════════════════ */
+@layer utilities {
+  /* Hide the scrollbar on horizontal snap tracks (touch carousels) */
+  .no-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Halftone dot field — tints to the current text color. */
+  .halftone {
+    background-image: radial-gradient(currentColor 22%, transparent 23%);
+    background-size: 7px 7px;
+    background-position: 0 0;
+  }
+  .halftone-lg {
+    background-image: radial-gradient(currentColor 22%, transparent 23%);
+    background-size: 12px 12px;
+  }
+  /* Halftone that fades out toward one edge — for screenprint gradients */
+  .halftone-fade-b {
+    -webkit-mask-image: linear-gradient(to bottom, #000, transparent);
+    mask-image: linear-gradient(to bottom, #000, transparent);
+  }
+  .halftone-fade-t {
+    -webkit-mask-image: linear-gradient(to top, #000, transparent);
+    mask-image: linear-gradient(to top, #000, transparent);
+  }
+
+  /* Hard offset "sticker / silkscreen" shadow. Set --pc to the color. */
+  .print-shadow {
+    box-shadow: 0.4rem 0.4rem 0 0 var(--pc, #000);
+  }
+  .print-shadow-sm {
+    box-shadow: 0.25rem 0.25rem 0 0 var(--pc, #000);
+  }
+
+  /* Knockout / outlined display numerals (screenprint poster look).
+     Keep `color` (currentColor) as the accent so the stroke shows it;
+     only the fill is knocked out. */
+  .stroke-text {
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 1.5px currentColor;
+  }
+
+  /* Riso-style chromatic split on hover (cyan/red ghosting) */
+  .riso {
+    text-shadow: 0 0 transparent;
+    transition: text-shadow 0.3s ease;
+  }
+  .group:hover .riso,
+  .riso:hover {
+    text-shadow: 0.06em 0 var(--color-flare), -0.06em 0 var(--color-teal);
+  }
+}
+
+/* ── Marquee band ─────────────────────────────────────────── */
+@keyframes marquee-x {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+@layer utilities {
+  .marquee {
+    display: inline-flex;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    will-change: transform;
+    animation: marquee-x var(--dur, 32s) linear infinite;
+  }
+  .marquee-rev {
+    animation-direction: reverse;
+  }
+  .group\/marquee:hover .marquee {
+    animation-play-state: paused;
+  }
+}
+
+/* ── Scroll-driven reveal (progressive enhancement) ──────────
+   Where supported, elements rise + fade as they enter the
+   viewport. Everywhere else they are simply visible.
+   Stagger children with `style="--d: 1"` (multiplied below). */
+@keyframes reveal-in {
+  from {
+    opacity: 0;
+    transform: translateY(2.25rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .reveal {
+      opacity: 0;
+      animation: reveal-in linear both;
+      animation-timeline: view();
+      animation-range: entry 2% cover 24%;
+    }
+    .reveal-stagger > * {
+      opacity: 0;
+      animation: reveal-in linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 30%;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee {
     animation: none;
   }
 }

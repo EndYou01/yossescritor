@@ -12,17 +12,20 @@ export const site = {
 
 export const awards = [
   { year: 1988, name: "Premio David de Ciencia Ficción", note: "Cuba — por Timshel" },
-  { year: 1996, name: "Premio Pinos Nuevos de Narrativa", note: "Cuba" },
-  { year: 2000, name: "Premio Luis Rogelio Nogueras", note: "por Los pecios y los náufragos" },
-  { year: 2005, name: "Premio Calendario", note: "Cuba — por Precio justo" },
-  { year: 2005, name: "Premio Domingo Santos", note: "España — por Morfeo verdugo" },
-  { year: 2011, name: "Premio UPC de Ciencia Ficción", note: "Barcelona — por Super Extra Grande" },
+  { year: 1995, name: "Premio Los Pinos Nuevos", note: "Cuba" },
+  { year: 1998, name: "Premio Luis Rogelio Nogueras de CF", note: "Cuba" },
+  { year: 2002, name: "Premio Universidad Carlos III de CF", note: "España" },
+  { year: 2004, name: "Premio Calendario de Ciencia Ficción", note: "Cuba — por Precio justo" },
+  { year: 2005, name: "Premio Domingo Santos", note: "España — cuento de CF" },
+  { year: 2010, name: "Premio UPC de novela corta de CF", note: "España" },
+  { year: 2011, name: "Premio Julia Verlanger", note: "Francia" },
+  { year: 2022, name: "Premio Hydra de Ciencia Ficción", note: "Cuba — Editora Abril" },
 ];
 
 export const stats = [
-  { value: "30+", label: "libros publicados" },
-  { value: "6", label: "idiomas traducidos" },
-  { value: "5", label: "premios mayores" },
+  { value: "43", label: "libros publicados" },
+  { value: "12", label: "idiomas traducidos" },
+  { value: "11", label: "países editado" },
   { value: "1988", label: "primer Premio David" },
 ];
 
