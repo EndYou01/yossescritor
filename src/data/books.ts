@@ -22,6 +22,13 @@ export const genreLabels: Record<Genre, string> = {
   Antología: "Antología",
 };
 
+// A cover for a translation or alternate edition, shown as a thumbnail strip.
+export type Edition = {
+  label: string; // e.g. "Gallego" or "Italiano"
+  title: string; // the title under which it was published
+  cover: string;
+};
+
 export type Book = {
   title: string;
   year: number | null;
@@ -30,6 +37,9 @@ export type Book = {
   summary: string;
   translations?: string[];
   cover?: string;
+  editions?: Edition[];
+  // Drafted from the cover/known facts — Yoss to confirm year, genre and synopsis.
+  draft?: boolean;
 };
 
 // Bibliografía basada en la lista de obras y el currículum del autor.
@@ -42,6 +52,7 @@ export const books: Book[] = [
     award: "Premio David de Ciencia Ficción (1988)",
     summary:
       "Su debut y carta de presentación: los cuentos con que, siendo un veinteañero, entró al mapa de la ciencia ficción cubana.",
+    cover: "/covers/timshel.webp",
   },
   {
     title: "Los pecios y los náufragos",
@@ -50,6 +61,7 @@ export const books: Book[] = [
     award: "Premio Luis Rogelio Nogueras",
     summary:
       "Siglo XXII: sin recursos ni naves, la humanidad saquea su propio pasado con viajes en el tiempo disfrazados de «investigación». El crononauta Targo Ridal descubre la verdad y acaba exiliado al Pleistoceno, entre tigres dientes de sable… y verdades sobre el origen del hombre que alguien quiere enterrar.",
+    cover: "/covers/los-pecios-y-los-naufragos.webp",
   },
   {
     title: "Se alquila un planeta",
@@ -69,6 +81,7 @@ export const books: Book[] = [
     genre: "Realismo",
     summary:
       "Con Danilo Manera. Dos voces, una femenina y otra masculina, recorren diez años clave de Cuba —de 1989 a 1999—: la caída del Muro, la llegada del turismo, el colapso de los absolutos y una generación obligada a reinventarse para sobrevivir.",
+    cover: "/covers/el-encanto-de-fin-de-siglo.webp",
   },
   {
     title: "Al final de la senda",
@@ -76,6 +89,7 @@ export const books: Book[] = [
     genre: "CF",
     summary:
       "En el siglo XXIV un puñado de asesinos de élite —los matadores— sostiene el equilibrio de la galaxia. El soldado Davo Stephan ben Yassiel jamás soñó con serlo, hasta que la inescrutable Lema Bocatrix lo elige como discípulo. La novela definitiva sobre la formación de un asesino profesional.",
+    cover: "/covers/al-final-de-la-senda.webp",
   },
   {
     title: "Polvo rojo",
@@ -94,6 +108,7 @@ export const books: Book[] = [
     award: "Premio Calendario",
     summary:
       "Cuentos premiados donde el comercio interestelar siempre tiene un precio… y casi nunca es justo.",
+    cover: "/covers/precio-justo.webp",
   },
   {
     title: "Pluma de león",
@@ -101,6 +116,7 @@ export const books: Book[] = [
     genre: "Erótica",
     summary:
       "Una joven sin escrúpulos se hace amante de un longevo extraterrestre aviario… y se enamora. Reescritura en clave de CF de El amante de Duras: erotismo desbocado y hondas disquisiciones sobre el futuro de la especie. Filosofía y sexo a chorros.",
+    cover: "/covers/pluma-de-leon.webp",
   },
   {
     title: "Crónicas del mañana",
@@ -108,6 +124,14 @@ export const books: Book[] = [
     genre: "Antología",
     summary:
       "Cincuenta años de cuentos cubanos de ciencia ficción, antologados por Yoss para celebrar medio siglo del género en la Isla. Traducida al gallego como Cronicas do mañá.",
+    cover: "/covers/cronicas-del-manana.webp",
+    editions: [
+      {
+        label: "Gallego",
+        title: "Crónicas do mañá",
+        cover: "/covers/cronicas-do-mana-gallego.webp",
+      },
+    ],
   },
   {
     title: "Las quimeras no existen",
@@ -115,6 +139,7 @@ export const books: Book[] = [
     genre: "Juvenil",
     summary:
       "Cuentos para niños y jóvenes: lo fantástico y lo imposible al alcance de los primeros lectores.",
+    cover: "/covers/las-quimeras-no-existen.webp",
   },
   {
     title: "Leyendas de los Cinco Reinos",
@@ -122,6 +147,7 @@ export const books: Book[] = [
     genre: "Fantasía",
     summary:
       "Cinco relatos que tejen un solo universo mágico: un dragón y el caballero que va ¿a matarlo?, un mago tras el secreto de los unicornios, un país que por volverse invulnerable deja de ser país. De lo más alto del vuelo poético de la fantasía cubana.",
+    cover: "/covers/leyendas-de-los-cinco-reinos.webp",
   },
   {
     title: "Tropas auxiliares",
@@ -129,6 +155,7 @@ export const books: Book[] = [
     genre: "CF",
     summary:
       "Seres insectoides, los araños, casi acaban con la humanidad. Cuando los ejércitos derrotados se reúnen para la reconquista, descubren en la batalla por La Habana quién está realmente detrás de los invasores. Primera entrega de una trilogía de space opera bélica.",
+    cover: "/covers/tropas-auxiliares.webp",
   },
   {
     title: "La espada y sus historias",
@@ -144,6 +171,7 @@ export const books: Book[] = [
     genre: "Realismo",
     summary:
       "Cuentos de realismo: la Cuba cotidiana contada sin anestesia y con el humor ácido de la casa.",
+    cover: "/covers/mentiras-cubanas.webp",
   },
   {
     title: "Super Extra Grande",
@@ -177,6 +205,7 @@ export const books: Book[] = [
     genre: "Terror",
     summary:
       "Un joven nacido sin cuerdas vocales se vuelve un vocalista de rock excepcional gracias al hechizo de un palero ciego… que también podría abrir la puerta a entidades de más allá del tiempo. Lovecraft y el imaginario del rock bajo un sol caribeño.",
+    cover: "/covers/la-voz-del-abismo.webp",
   },
   {
     title: "Angélica",
@@ -184,6 +213,7 @@ export const books: Book[] = [
     genre: "CF",
     summary:
       "Un planeta-prisión cubierto de arena y de monstruos, los onis, donde los convictos sobreviven cazándolos. Hasta que una joven idealista y un viejo superviviente lo cambian todo. Space opera ecologista; homenaje explícito a Dune… con arena y artes marciales, pero sin gusanos.",
+    cover: "/covers/angelica.webp",
   },
   {
     title: "El Laberinto del Olvido",
@@ -191,6 +221,7 @@ export const books: Book[] = [
     genre: "Juvenil",
     summary:
       "Con Michel Encinosa. Las reglas, tablas, poderes y habilidades del primer juego de rol de fantasía comercializado oficialmente en Cuba.",
+    cover: "/covers/el-laberinto-del-olvido.webp",
   },
   {
     title: "Ingenieros y jenízaros",
@@ -198,6 +229,7 @@ export const books: Book[] = [
     genre: "CF",
     summary:
       "Los telayones, una raza artrópode, conquistan planeta tras planeta. La teniente Carla Herrera, especialista en ingeniería inversa, sueña con descubrir el secreto de su biotecnología… y cae en una pesadilla de cautiverio con un desenlace inesperado. Ambiciosa space opera.",
+    cover: "/covers/ingenieros-y-jenizaros.webp",
   },
   {
     title: "Misión Korad",
@@ -212,6 +244,7 @@ export const books: Book[] = [
     genre: "Erótica",
     summary:
       "El sueño de todo macho latino convertido en trampa: un tímido poeta enredado entre dos mujeres opuestas se ve obligado a crecer, en una historia a la vez trágica y esperanzadora.",
+    cover: "/covers/el-gato-tras-la-reja.webp",
   },
   {
     title: "Para leer con una sola mano",
@@ -219,6 +252,7 @@ export const books: Book[] = [
     genre: "Erótica",
     summary:
       "Diez relatos —uno de ciencia ficción, otro de fantasía— con lo mejor de la producción erótica del autor.",
+    cover: "/covers/para-leer-con-una-sola-mano.webp",
   },
   {
     title: "País grande, país pequeño",
@@ -226,6 +260,7 @@ export const books: Book[] = [
     genre: "CF",
     summary:
       "Tres relatos donde el absurdo rige las relaciones entre dos países vecinos: una antena que capta el futuro, gente que se vuelve piezas de un mecanismo ignoto y dos fábricas en una carrera ridícula por la chimenea más alta del mundo.",
+    cover: "/covers/pais-grande-pais-pequeno.webp",
   },
   {
     title: "Reto prehistórico",
@@ -233,6 +268,7 @@ export const books: Book[] = [
     genre: "CF",
     summary:
       "En un foro de fanáticos de la paleontología se discute qué bestia extinta ganaría un duelo… hasta que alguien empieza a subir reels de batallas imposibles, con un realismo que da miedo. La novela que todo fan de los dinosaurios soñó leer.",
+    cover: "/covers/reto-prehistorico.webp",
   },
   {
     title: "Que den un paso al frente los caídos",
@@ -240,6 +276,7 @@ export const books: Book[] = [
     genre: "CF",
     summary:
       "Siglo XXII: la humanidad guerrea contra un enemigo que no da la cara y manda a luchar a humanos manipulados. La historia del capitán de subrepticios Alain y su duelo casi personal con un capitán enemigo. Space opera retrofuturista al estilo de Run Silent, Run Deep.",
+    cover: "/covers/que-den-un-paso-al-frente-los-caidos.webp",
   },
   {
     title: "El mercenario y el desierto",
@@ -254,6 +291,7 @@ export const books: Book[] = [
     genre: "Juvenil",
     summary:
       "Ala-Que-Ruge, un grifo de las faldas del Olimpo, sueña con una familia en armonía mientras una vieja amenaza, Tifón, escapa del Tártaro. Cuento ilustrado para niños.",
+    cover: "/covers/el-grifo-casi-feliz.webp",
   },
   {
     title: "Etcétera… y otras cosas",
@@ -261,6 +299,7 @@ export const books: Book[] = [
     genre: "CF",
     summary:
       "Ciencia ficción contada en forma de paratextos: una receta de cocina, el prospecto de un cosmético, las entradas de un diccionario bilingüe…",
+    cover: "/covers/etcetera-y-otras-cosas.webp",
   },
   {
     title: "La ciudad y el torneo",
@@ -268,6 +307,7 @@ export const books: Book[] = [
     genre: "Fantasía",
     summary:
       "Yxo de Aigar llega por fin a la Ciudad de Sal. Heredero de una misión libertadora, debe luchar en el Vendaval de Acero y Sangre y reclutar rebeldes contra el casi omnipotente Mago Blanco… entre rivales formidables, uno de ellos, un hijo suyo. Libro II de La Ciudad de Sal.",
+    cover: "/covers/la-ciudad-y-el-torneo.webp",
   },
   {
     title: "El advenimiento",
@@ -275,6 +315,7 @@ export const books: Book[] = [
     genre: "CF",
     summary:
       "La esperada secuela de Al final de la senda. Veinte años después, el temido matador Davo Stephan ben Yassiel llega al planeta-monasterio Tobado, donde místicos de todas las religiones anuncian la inminente encarnación de un dios… al que tal vez deba eliminar.",
+    cover: "/covers/el-advenimiento.webp",
   },
   {
     title: "Prueba de destrucción",
@@ -282,6 +323,7 @@ export const books: Book[] = [
     genre: "CF",
     summary:
       "Cuentos de ciencia ficción que llevan al límite a hombres, máquinas y mundos.",
+    cover: "/covers/prueba-de-destruccion.webp",
   },
   {
     title: "Sobras encogidas",
@@ -289,5 +331,90 @@ export const books: Book[] = [
     genre: "Humor",
     summary:
       "Cuentos de humor: la cara más gamberra y desprejuiciada del autor.",
+  },
+
+  // ── Pendientes de revisión ────────────────────────────────────────────
+  // Tienen portada pero faltaba ficha: año, género y/o sinopsis son
+  // borradores (a partir de la propia portada). Yoss los confirma.
+  {
+    title: "Viejos magos, jóvenes guerreros",
+    year: null,
+    genre: "Fantasía",
+    summary:
+      "Fantasía heroica escrita con Javier de la Torre. [Sinopsis pendiente de confirmar.]",
+    draft: true,
+    cover: "/covers/viejos-magos-jovenes-guerreros.webp",
+  },
+  {
+    title: "W",
+    year: null,
+    genre: "CF",
+    summary:
+      "Relato publicado por Ediciones Letra en su colección Cuento. [Género y sinopsis pendientes de confirmar.]",
+    draft: true,
+    cover: "/covers/w.webp",
+  },
+  {
+    title: "La moto y el unicornio",
+    year: null,
+    genre: "Fantasía",
+    summary:
+      "Editado en Japón (バイクとユニコーン). [Año, género y sinopsis pendientes de confirmar.]",
+    draft: true,
+    cover: "/covers/la-moto-y-el-unicornio.webp",
+  },
+  {
+    title: "Conan el Cimerio",
+    year: null,
+    genre: "Antología",
+    summary:
+      "Los relatos de Robert E. Howard sobre Conan, en recopilación, versión, prólogo y notas al cuidado de Yoss (Ediciones Ámbar). [Año pendiente de confirmar.]",
+    draft: true,
+    cover: "/covers/conan-el-cimerio.webp",
+  },
+  {
+    title: "Ciencia Ricción",
+    year: null,
+    genre: "Antología",
+    summary:
+      "Antología de cuentos humorísticos de ciencia ficción, compilada junto a Carlos Duarte Cano. [Año pendiente de confirmar.]",
+    draft: true,
+    cover: "/covers/ciencia-riccion.webp",
+  },
+  {
+    title: "En sus marcas, listos… ¡Futuro!",
+    year: null,
+    genre: "Antología",
+    summary:
+      "Cuentos cubanos de ciencia ficción deportiva, antologados por Yoss. [Año pendiente de confirmar.]",
+    draft: true,
+    cover: "/covers/en-sus-marcas-listos-futuro.webp",
+  },
+  {
+    title: "Reino Eterno",
+    year: null,
+    genre: "Antología",
+    summary:
+      "Cuentos de fantasía y ciencia ficción, con selección y prefacio de Yoss. [Año pendiente de confirmar.]",
+    draft: true,
+    cover: "/covers/reino-eterno.webp",
+  },
+  {
+    title: "Caballería mutante",
+    year: null,
+    genre: "Antología",
+    summary:
+      "Literatura fantástica cubana: selección, notas y comentarios de José A. Cantallops y Yoss, con prólogo de Yoss. [Año pendiente de confirmar.]",
+    draft: true,
+    cover: "/covers/caballeria-mutante.webp",
+  },
+  {
+    title: "Los mundos de la guerra",
+    year: null,
+    genre: "Antología",
+    summary:
+      "Cuentos cubanos de ciencia ficción bélica, con ilustraciones de Ángel Hernández Llanes. [Año pendiente de confirmar.]",
+    draft: true,
+    cover: "/covers/los-mundos-de-la-guerra.webp",
   },
 ];

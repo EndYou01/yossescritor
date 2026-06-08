@@ -128,10 +128,10 @@ export function Hero() {
             }}
           />
           <Image
-            src="/yoss-hero.png"
-            alt="Ilustración de Yoss: sombrero rojo, gafas, camiseta de Superman y botas"
-            width={1536}
-            height={2752}
+            src="/yoss-hero-real.webp"
+            alt="Yoss: sombrero rojo, gafas, camiseta de Superman, pantalón rojo y botas"
+            width={1325}
+            height={1800}
             priority
             sizes="(max-width: 1024px) 80vw, 42vw"
             className="hero-figure relative z-[1] h-full w-auto object-contain object-bottom drop-shadow-[0_14px_55px_rgba(0,0,0,0.9)]"
@@ -172,10 +172,10 @@ export function Hero() {
               }}
             />
             <Image
-              src="/yoss-hero.png"
-              alt="Ilustración de Yoss: sombrero rojo, gafas, camiseta de Superman y botas"
-              width={1536}
-              height={2752}
+              src="/yoss-hero-real.webp"
+              alt="Yoss: sombrero rojo, gafas, camiseta de Superman, pantalón rojo y botas"
+              width={1325}
+              height={1800}
               priority
               sizes="42vw"
               className="hero-figure relative h-[92svh] w-auto object-contain object-bottom drop-shadow-[0_14px_55px_rgba(0,0,0,0.9)]"

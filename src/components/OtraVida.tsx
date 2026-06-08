@@ -70,29 +70,29 @@ export function OtraVida() {
             </p>
           </div>
 
-          {/* Character art with ghost wordmark */}
-          <div
-            aria-hidden
-            className="relative flex items-end gap-2 shrink-0 self-center md:self-end"
-          >
-            <span className="absolute bottom-2 left-1/2 -translate-x-1/2 font-display font-black tracking-[0.1em] text-flare/15 text-[6rem] sm:text-[9rem] leading-none pointer-events-none select-none">
-              METAL
-            </span>
+          {/* Environmental portrait — el guerrero en la manigua */}
+          <figure className="group relative w-full max-w-xs shrink-0 self-center md:self-end overflow-hidden border border-flare/30">
             <Image
-              src="/yoss-metal.png"
-              alt=""
-              width={186}
-              height={508}
-              className="relative h-44 sm:h-56 w-auto object-contain object-bottom drop-shadow-[0_8px_24px_rgba(0,0,0,0.7)]"
+              src="/yoss-jungle.webp"
+              alt="Yoss con sombrero y armas blancas en la manigua cubana"
+              width={1351}
+              height={1800}
+              sizes="(max-width: 768px) 80vw, 20rem"
+              className="w-full h-auto object-cover contrast-[1.05] saturate-[0.9] transition-transform duration-700 group-hover:scale-[1.03]"
             />
-            <Image
-              src="/yoss-outlaw.png"
-              alt=""
-              width={208}
-              height={502}
-              className="relative h-48 sm:h-64 w-auto object-contain object-bottom drop-shadow-[0_8px_24px_rgba(0,0,0,0.7)]"
+            <div
+              aria-hidden
+              className="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/10 to-transparent"
             />
-          </div>
+            <div aria-hidden className="absolute inset-0 grain pointer-events-none" />
+            <div
+              aria-hidden
+              className="halftone text-flare opacity-25 absolute right-0 top-0 h-20 w-20 halftone-fade-t pointer-events-none"
+            />
+            <figcaption className="absolute bottom-3 left-4 font-sans text-[10px] uppercase tracking-[0.35em] text-bone/70">
+              Artes marciales · armas blancas
+            </figcaption>
+          </figure>
         </div>
 
         <div className="grid md:grid-cols-3 gap-5 reveal-stagger">

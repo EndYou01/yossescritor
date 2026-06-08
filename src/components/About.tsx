@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { awards, stats } from "@/data/site";
 import { Kicker } from "@/components/Kicker";
 import { NumberTicker } from "@/components/ui/number-ticker";
@@ -27,6 +28,30 @@ export function About() {
                 manuscrito?
               </span>
             </h2>
+
+            {/* Editorial portrait — Yoss en el trono del Malecón */}
+            <figure className="group relative mt-10 max-w-sm overflow-hidden border border-gold/25">
+              <Image
+                src="/yoss-malecon.webp"
+                alt="Yoss sentado en la escultura del Malecón de La Habana"
+                width={1256}
+                height={1800}
+                sizes="(max-width: 1024px) 90vw, 30vw"
+                className="w-full h-auto object-cover contrast-[1.05] saturate-[0.92] transition-transform duration-700 group-hover:scale-[1.03]"
+              />
+              <div
+                aria-hidden
+                className="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/10 to-transparent"
+              />
+              <div aria-hidden className="absolute inset-0 grain pointer-events-none" />
+              <div
+                aria-hidden
+                className="halftone text-gold opacity-20 absolute right-0 top-0 h-20 w-20 halftone-fade-t pointer-events-none"
+              />
+              <figcaption className="absolute bottom-3 left-4 font-sans text-[10px] uppercase tracking-[0.35em] text-bone/70">
+                El Malecón · La Habana
+              </figcaption>
+            </figure>
           </div>
 
           <div className="lg:col-span-8 space-y-6 font-serif text-bone-dim text-lg leading-relaxed">

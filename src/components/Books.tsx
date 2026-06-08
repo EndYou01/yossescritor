@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { books, genreLabels } from "@/data/books";
 import { BookCover } from "@/components/BookCover";
 import { Kicker } from "@/components/Kicker";
@@ -33,7 +34,7 @@ export function Books() {
               La obra
             </Kicker>
             <h2 className="font-display font-bold text-bone text-4xl sm:text-6xl leading-tight">
-              Cuarenta libros.
+              Más de cuarenta libros.
               <br />
               <span className="text-flare italic font-serif font-normal">
                 Una sola voz.
@@ -90,6 +91,36 @@ export function Books() {
                   <p className="mt-auto pt-4 border-t border-bone/10 font-sans text-xs uppercase tracking-widest text-bone-dim">
                     Traducciones · {b.translations.join(" · ")}
                   </p>
+                )}
+                {b.editions && b.editions.length > 0 && (
+                  <div
+                    className={`flex items-center gap-3 ${
+                      b.translations && b.translations.length > 0
+                        ? "pt-3"
+                        : "mt-auto pt-4 border-t border-bone/10"
+                    }`}
+                  >
+                    <span className="font-sans text-[10px] uppercase tracking-widest text-bone-dim shrink-0">
+                      Otras ediciones
+                    </span>
+                    <div className="flex gap-2">
+                      {b.editions.map((e) => (
+                        <div
+                          key={e.cover}
+                          className="relative aspect-[2/3] w-9 overflow-hidden border border-bone/15 bg-ink-soft"
+                          title={`${e.title} · ${e.label}`}
+                        >
+                          <Image
+                            src={e.cover}
+                            alt={`Portada de ${e.title} (${e.label})`}
+                            fill
+                            sizes="36px"
+                            className="object-cover"
+                          />
+                        </div>
+                      ))}
+                    </div>
+                  </div>
                 )}
               </div>
             </li>
