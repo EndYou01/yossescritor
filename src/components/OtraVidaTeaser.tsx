@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { Kicker } from "@/components/Kicker";
 import { Particles } from "@/components/ui/particles";
@@ -61,22 +60,6 @@ export function OtraVidaTeaser() {
           >
             METAL
           </span>
-          <Image
-            src="/yoss-metal.png"
-            alt=""
-            aria-hidden
-            width={186}
-            height={508}
-            className="relative h-40 sm:h-52 w-auto object-contain object-bottom drop-shadow-[0_8px_24px_rgba(0,0,0,0.7)]"
-          />
-          <Image
-            src="/yoss-outlaw.png"
-            alt=""
-            aria-hidden
-            width={208}
-            height={502}
-            className="relative h-44 sm:h-60 w-auto object-contain object-bottom drop-shadow-[0_8px_24px_rgba(0,0,0,0.7)]"
-          />
         </div>
       </div>
     </section>
